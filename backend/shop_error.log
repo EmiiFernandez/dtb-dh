@@ -379,3 +379,4 @@
 [2023-09-23 15:27:03] [ ERROR] [GlobalExceptionHandler:19] Required request parameter 'emailUser' for method parameter type String is not present
 [2023-09-23 19:32:23] [ ERROR] [GlobalExceptionHandler:19] Required request parameter 'startDate' for method parameter type Date is not present
 [2023-09-23 19:40:53] [ ERROR] [GlobalExceptionHandler:19] Request method 'GET' is not supported
+[2023-10-02 20:20:25] [ ERROR] [GlobalExceptionHandler:19] java.io.IOException: Se ha anulado una conexión establecida por el software en su equipo host.
