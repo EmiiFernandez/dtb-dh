@@ -1,0 +1,59 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #a9a794;
+  height: 50vh;
+  width: 40vw;
+
+}
+
+.inicioH2 {
+  color: whitesmoke;
+}
+.labelContainer{
+  color: whitesmoke;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 16px;
+}
+
+.buttonInicio {
+  width: 90%;
+  padding: 10px;
+  background-color: #214f55;
+  color: whitesmoke;
+  border: none;
+  border-radius: 7px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.buttonInicio:hover {
+  background-color: #0056b3;
+}
+.emailValido{
+  background-color: green;
+}
+.emailInvalido{
+  background-color: red;
+}
+.errorIS{
+  background-color: rosybrown;
+  width: 20vw;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  margin-left: 8rem;
+}

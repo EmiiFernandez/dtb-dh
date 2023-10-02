@@ -1,0 +1,238 @@
+.contenedorPadre {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  font-size: 30px;
+  font-weight: bold;
+}
+.loginPopup {
+  align-items: center;
+  background-color: #213555;
+  border-radius: 0.5rem;
+  width: 70vw;
+  height: 4vh;
+  margin: 0 auto;
+}
+.loginPopupP {
+  font-size: 1rem;
+  color: whitesmoke;
+  text-align: center;
+  padding-top: 0.3rem;
+}
+.cardConteiner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 64px;
+  margin-bottom: 55px;
+  gap: 15px;
+  padding: 10px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 15vw;
+  height: 28vh;
+  background: white ;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: black;
+}
+.card:hover {
+  transform: scale(0.95);
+}
+.botonesFavshare {
+  display: flex;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    justify-content: space-around;
+}
+.buttonShare {
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+.favoritosButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.imgContainer {
+  width: 13vw;
+  height: 20vh;
+  overflow: hidden;
+}
+.img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  border-radius: 2rem;
+}
+.dataContainer {
+  width: 10vw;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-top: 1rem;
+}
+.button {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1rem;
+  border: 0;
+  color: black;
+  background-color: #d8c4b6;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.95rem;
+  height: 4vh;
+  font-weight: bold;
+  border-radius: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card .button:hover {
+  opacity: 0.7;
+}
+
+.h3 {
+  width: 100%;
+  font-size: 0.7rem;
+  word-wrap: break-word;
+  height: 50%;
+  margin: none;
+  padding: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.h4 {
+  width: 100%;
+  height: 50%;
+  font-size: 0.9rem;
+  word-wrap: break-word;
+  margin: none;
+  padding: none;
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.numeracion {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+.buttonPagination {
+  background-color: #214f55;
+  color: whitesmoke;
+  padding: 0.5rem;
+  margin: 0.25rem;
+  border-radius: 1rem;
+  border: none;
+  width: 5.2vw;
+  font-weight: bold;
+}
+.buttonPagination:hover {
+  background-color: #0056b3;
+}
+
+/* Agrega estilos para la ventana emergente */
+.sharePopup {
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  width: 25vw;
+  height: 62vh;
+  border-radius: 0.5rem;
+}
+
+.sharePopupImg {
+  width: 15vw;
+}
+
+.sharePopupInput {
+  width: 22vw;
+  height: 3.5vh;
+  margin: 1rem 0;
+}
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+.socialLinksA {
+  margin: 0 10px;
+  text-decoration: none;
+}
+.detailLink {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #007bff; /* Puedes cambiar el color del enlace según tu estilo */
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .contenedorPadre {
+    flex-wrap: wrap;
+    padding-top: 2rem;
+  }
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .cardConteiner {
+    justify-content: space-around;
+  }
+  .button {
+    font-size: 0.4rem;
+    padding: 0;
+    margin: 0;
+    height: 2.5vh;
+  }
+  .h4 {
+    font-size: 0.4rem;
+  }
+  .h3 {
+    font-size: 0.35rem;
+  }
+
+  .card {
+    justify-content: space-around;
+    width: 10vw;
+    height: 18vh;
+    padding: 1rem;
+    border-radius: 9px;
+  }
+  .pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .sharePopup {
+    width: 28vw;
+  }  
+  
+}

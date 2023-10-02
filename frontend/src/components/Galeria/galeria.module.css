@@ -1,0 +1,60 @@
+/* galeria.module.css */
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+/* .galleryContainer{
+} */
+.imagenes {
+  border-radius: 1.5rem;
+  width: 20vw;
+  height: 30vh;
+  padding: 1rem;
+}
+.aVolverDetalle {
+  text-align: end;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .galleryContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 1.5rem;
+  }
+  .mainImage {
+    width: auto;
+    height: auto;
+    padding-bottom: 1rem;
+  }
+  .mainImage img {
+    width: 90vw;
+    height: 10vh;
+  }
+
+  .imageGrid {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: auto;
+    height: auto;
+  }
+  .imageGrid img {
+    width: 90vw;
+    height: 10vh;
+  }
+  .verMas {
+    margin-left: 40vw;
+  }
+  .aVolverDetalle {
+    text-align: center;
+    margin-right: 0rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}

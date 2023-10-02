@@ -1,0 +1,154 @@
+.card {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #A9A794;
+  width: 90vw;
+  border-radius: 40px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.heading{
+  text-align: center;
+}
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+}
+
+table td {
+  max-height: 25px;
+  text-overflow: ellipsis; 
+  white-space: nowrap;
+}
+
+table th,
+table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+table th {
+  background-color: #f0f0f0;
+}
+
+table tbody tr {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+table tbody tr:hover {
+  background-color: #f5f5f5;  
+}
+
+.productImage {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.selectButton,
+.removeButton,
+.addButton {
+  padding: 8px 12px;
+  margin-right: 8px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Estilos para las características */
+.feature {
+  margin-bottom: 8px;
+}
+
+/* Estilos para el subencabezado */
+.subheading {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.listaProductos td:nth-child(3),
+.listaProductos th:nth-child(3){
+  max-width: 40%;
+}
+
+.listaProductos td:nth-child(4),
+.listaProductos th:nth-child(4){
+  max-width: 40%;
+}
+
+.suggestions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 150px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.suggestions li {
+  padding: 8px;
+  cursor: pointer;
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+.featureCard {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #A9A794;
+  width: 90vw;
+  border-radius: 40px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.featureCard h3 {
+  margin-top: 0;
+}
+
+.featureCard select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.featureCard button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.featureCard button:hover {
+  background-color: #0056b3;
+}
+
+.selectedRow {
+  background-color: #eeeeee; 
+  transition: background-color 0.2s;
+}

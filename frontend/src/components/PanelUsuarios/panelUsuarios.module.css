@@ -1,0 +1,102 @@
+.panelUsuarios {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #A9A794;
+  width: 90vw;
+  border-radius: 40px;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+/* Estilos para el título del panel de usuarios */
+.panelUsuarios h1 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-align: center; /* Centra el título */
+}
+
+/* Estilos para el campo de búsqueda */
+.searchInput {
+  width: calc(100% - 30px);
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilos para la tabla de usuarios */
+.usuarioTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Estilos para las celdas de la tabla */
+.usuarioTable th,
+.usuarioTable td {
+  padding: 10px;
+  border: 2px solid black;
+  text-align: center;
+}
+
+/* Estilos para las celdas de encabezado de la tabla */
+.usuarioTable th {
+  color: aliceblue;
+  background-color: #214F55;
+}
+
+/* Estilos para las celdas de datos de la tabla */
+.usuarioTable td {
+  font-size: 16px;
+}
+
+/* Establece un ancho específico para cada columna */
+.usuarioTable td:nth-child(1),
+.usuarioTable th:nth-child(1) {
+  width: 3%; /* Ancho para la columna "Nombre" */
+}
+
+.usuarioTable td:nth-child(2),
+.usuarioTable th:nth-child(2) {
+  width: 25%; /* Ancho para la columna "Apellido" */
+}
+
+.usuarioTable td:nth-child(3),
+.usuarioTable th:nth-child(3) {
+  width: 25%; /* Ancho para la columna "Email" */
+}
+
+.usuarioTable td:nth-child(4),
+.usuarioTable th:nth-child(4) {
+  width: 25%; /* Ancho para la columna "Administrador" */
+}
+
+.usuarioTable tbody tr:nth-child(even) {
+  background-color: #e0e0e0;
+}
+
+.greenLight {
+  background-color: green;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.blackLight {
+  background-color: black;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.adminButton {
+  background-color: #213555; 
+  color: whitesmoke; 
+  border: none;
+  padding: 8px 16px; 
+  cursor: pointer; 
+  border-radius: 5px; 
+  font-size: 14px; 
+}
+

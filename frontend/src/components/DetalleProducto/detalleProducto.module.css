@@ -1,0 +1,386 @@
+.detalleProducto {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.detalleHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 3rem;
+}
+
+.caracteristicas {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  text-align: center;
+}
+
+.caracteristicasIndiv {
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-top: 2rem;
+}
+
+.flecha{
+  margin-right: 5rem;
+}
+
+
+
+.detalleBody {
+  display: flex;
+  margin-top: 2rem;
+}
+.ladoIzquierdo {
+  width: 40vw;
+  padding: 2rem;
+}
+.h3 {
+  text-align: center;
+  font-size: 1rem;
+}
+.productDescription {
+  text-align: justify;
+}
+.precioBoton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.precio {
+  font-weight: bold;
+  font-size: 1rem;
+}
+.botonReserva {
+  background-color: #214f55;
+  color: whitesmoke;
+  font-size: 0.8rem;
+  border-radius: 1rem;
+  width: 8vw;
+  height: 4vh;
+  border-style: none;
+  cursor: pointer;
+  box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
+}
+.botonReserva:hover{
+  background-color: #213555;
+}
+
+.calendarios {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.calendario {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ladoDerecho{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.imgContainer {
+  display: flex;
+}
+
+.productImageBox {
+  padding-right: 1rem;
+}
+
+.productImage {
+  width: 30vw;
+  height: 55vh;
+  border-radius: 1.5rem;
+}
+
+.errorBox{
+  width: 30vw;
+  height: 55vh;
+  border-radius: 1.5rem;
+}
+
+.defaultText{
+  width: 30vw;
+  height: 55vh;
+  border-radius: 1.5rem;
+}
+
+.product4 {
+  display: flex;
+  align-items: center; 
+  margin-top: -1rem;
+}
+
+.product2 {
+  display: inline-block;
+  padding: 0.5rem;
+ 
+}
+
+.productImg {
+  width: 15vw;
+  height: 26vh;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.productImg:hover {
+  transform: scale(1.1); 
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.VerMasBox {
+  background-color: #214f55;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  width: 14vw;
+  height: 4vh;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.VerMasBox:hover {
+  background-color: #213555;
+}
+
+.a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.calendarContainer {
+  margin-top: 20px;
+}
+
+.calendar {
+  max-width: 100%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.tarjetasContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  
+}
+
+.tarjeta {
+  flex-basis: calc(25% - 10px);
+  padding: 20px;
+  background-color: #A9A794;
+  border: 1px solid #ddd;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.tarjeta h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.tarjeta p {
+  font-size: 14px;
+  color: #666;
+}
+
+.politicasContainer {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 4rem;
+}
+
+.politicasContainer h4 {
+  font-size: 24px; 
+  margin-bottom: 20px;
+}
+
+.reviewContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; 
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px; 
+  background-color: #A9A794;
+}
+
+.reviewIzquierda {
+  flex-basis: calc(12% - 20px);
+  padding: 10px; 
+  box-sizing: border-box; 
+  display: flex;
+  align-items: center;
+}
+
+.reviewDerecha {
+  flex-basis: calc(80% - 20px); 
+  padding: 10px; 
+  box-sizing: border-box; 
+}
+
+.averageRating {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: flex-start;
+  margin-right: 20px;
+}
+
+.averageRating p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+
+.reviewSection {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px; 
+}
+
+h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.ratingStars {
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.starActive {
+  color: orange;
+  margin-left: 5px;
+}
+
+.starInactive {
+  color: #ccc;
+}
+
+.reviewTextArea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
+.submitReviewButton {
+  background-color: #214f55;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.ratingStars {
+  display: flex;
+  gap: 5px;
+}
+
+.averageRatingNumber {
+  font-size: 24px;
+  font-weight: bold;
+  color: orange;
+  margin-top: 10px; 
+}
+
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.reviewRating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+.reviewsContainer {
+  text-align: center;
+  margin-top: 20px; 
+}
+
+.reviewsTitle {
+  font-size: 24px; 
+  color: #333; 
+}
+
+.reviewsList {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.reviewItem {
+  background-color: #f9f9f9; 
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.reviewDate {
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+}
+
+.reviewText {
+  margin-top: 5px;
+  font-size: 16px; 
+  color: #666; 
+}
+
+.userRating {
+  margin-left: 10px;
+  font-weight: bold; 
+  color: #FFD700; 
+}
+
+.reviewCount {
+  font-size: 14px;
+  margin-top: 5px;
+ 
+}

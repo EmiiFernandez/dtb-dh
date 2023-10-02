@@ -1,0 +1,67 @@
+.pantalla{
+    display: flex;
+    justify-content: center;
+    padding: 5rem;
+}
+
+.formulario{
+    background-color: #A9A794;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    max-height: 1000px;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    border-radius: 1rem;
+}
+
+.titulo{
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    margin-bottom: 3rem;
+    }
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.input{
+    border-radius: 0.5rem;
+    min-width: 500px;
+    min-height: 40px;
+    margin-top: 1rem;
+    border: none;
+}
+
+.contactoButton{
+    background-color: #214F55;
+    border: none;
+    color: #E5E5E5;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    width: 15vw;
+    margin-top: 3rem;
+}
+
+.contactoButton:hover{
+    background-color: #0056b3;
+}
+
+.mensajeConfirmacion{
+    position: fixed; /* Fijar la posición */
+    top: 50%; /* Centrar verticalmente */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translate(-50%, -50%); /* Centrar exactamente en el medio */
+    background-color: #214F55; /* Color de fondo del mensaje */
+    color: #E5E5E5; /*color de letras*/
+    padding: 20px; /* Espaciado interno para el contenido del mensaje */
+    border: 1px solid #ccc; /* Borde opcional */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra opcional */
+    z-index: 1000; /* Z-index para asegurarse de que esté por encima de otros elementos */
+}

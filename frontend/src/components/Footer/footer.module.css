@@ -1,0 +1,83 @@
+.footerContainer{
+    width: 100%;
+    color: white;
+    background: #4F709C;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    /*position: sticky;
+    bottom: 0;*/
+    
+}
+
+.footerBox{
+    width: 100vw;
+    height: 9vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footerLogo {
+    height: auto;
+    width: auto;
+    max-width: 180px;
+    max-height: 180px;
+    margin-left: 0.6rem;
+}
+
+.footerLinks{
+    display: flex;
+    font-size: 25px;
+    padding-left: 45px;
+    padding-right: 45px;
+    cursor: pointer;
+    justify-content: space-around;
+}
+
+.footerLinks a{
+margin-left: 6px;
+margin-right: 6px;
+}
+
+.date{
+    margin: 0 0;
+    width: 100%;
+    padding: 5px 0;
+    background-color: black;
+    text-align: center;
+    color: whitesmoke;
+}
+
+
+
+  /****************Tablet************************/
+
+@media (max-width: 1023px)
+
+{
+
+}
+
+
+
+/****************Smartphone************************/
+
+@media (max-width: 768px){
+.footerBox{
+    flex-direction: column;
+    height: 12vh;
+}
+.footerLogo{
+    max-width: 130px;
+    max-height: 130px;
+}
+.footerLinks{
+    padding-bottom: 20px ;
+    
+}
+.date{
+    font-size:0.5rem ;
+}
+}

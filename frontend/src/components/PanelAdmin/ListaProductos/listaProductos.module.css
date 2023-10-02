@@ -1,0 +1,106 @@
+.listaProductos {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #A9A794;
+  width: 90vw;
+  border-radius: 40px;
+}
+
+.listaProductos h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.listaProductos table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.listaProductos th,
+.listaProductos td {
+  padding: 10px;
+  border: 2px solid black;
+  text-align: center;
+}
+
+.listaProductos th {
+  color: aliceblue;
+  background-color: #214F55;
+}
+
+.listaProductos td {
+  font-size: 16px;
+}
+
+.listaProductos img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.listaProductos input[type="text"],
+.listaProductos textarea {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.listaProductos button {
+  background-color: transparent;
+  color: aliceblue;
+  border: none;
+  border-radius: 4px;
+  padding: 3px 8px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.listaProductos button:hover {
+  color: #007bff;
+}
+
+/* Establece un ancho específico para cada columna */
+.listaProductos td:nth-child(1),
+.listaProductos th:nth-child(1) {
+  width: 2%; /* Ancho para la columna "Id" */
+}
+
+.listaProductos td:nth-child(2),
+.listaProductos th:nth-child(2) {
+  width: 10%; /* Ancho para la columna "Imagen" */
+}
+
+.listaProductos td:nth-child(3),
+.listaProductos th:nth-child(3) {
+  width: 15%; /* Ancho para la columna "Nombre" */
+  font-weight: bold;
+}
+
+.listaProductos td:nth-child(4),
+.listaProductos th:nth-child(4) {
+  width: 20%; /* Ancho para la columna "Descripción" */
+}
+
+.listaProductos td:nth-child(5),
+.listaProductos th:nth-child(5) {
+  width: 4%; /* Ancho para la columna "Categoría" */
+  font-weight: bold;
+}
+
+.listaProductos td:nth-child(6),
+.listaProductos th:nth-child(6) {
+  width: 4%; /* Ancho para la columna "Brand" */
+  font-weight: bold;
+}
+
+.listaProductos td:nth-child(7),
+.listaProductos th:nth-child(7) {
+  width: 6%; /* Ancho para la columna "Price" */
+}
+
+.listaProductos td:nth-child(8),
+.listaProductos th:nth-child(8) {
+  width: 2%; /* Ancho para la columna "Price" */
+}

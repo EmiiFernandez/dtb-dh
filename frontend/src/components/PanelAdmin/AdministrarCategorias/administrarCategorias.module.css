@@ -1,0 +1,86 @@
+.administrarCategorias {
+  background-color: #A9A794;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 40px;
+  width: 80vw;
+}
+
+.titulo {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.formulario {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.inputContainer {
+  display: block;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 70vw;
+}
+
+.etiqueta {
+  display: block;
+  font-weight: bold;
+}
+
+.inputCategoria {
+  flex: 1; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.boton {
+  background-color: #213555;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px; 
+}
+
+.categoriaLista {
+  list-style: none;
+  padding: 0;
+}
+
+.categoriaItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.categoriaItem:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.categoriaNombre {
+  font-weight: bold;
+}
+
+.iconos button {
+  background-color: #213555;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 3px 8px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.editarCategoria {
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}

@@ -1,0 +1,64 @@
+.administrarCaracteristicas {
+  background-color: #A9A794;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  width: 65vw;
+  border-radius: 40px;
+}
+
+.agregarCaracteristica {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.agregarCaracteristica input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.agregarCaracteristica button {
+  background-color: #213555;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.listaCaracteristicas {
+  list-style: none;
+  padding: 0;
+}
+
+.listaCaracteristicas li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.listaCaracteristicas li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.listaCaracteristicas span {
+  font-weight: bold;
+}
+
+.listaCaracteristicas button {
+  background-color: #213555;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 3px 8px;
+  margin-left: 5px;
+  cursor: pointer;
+}

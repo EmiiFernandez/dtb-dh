@@ -1,0 +1,78 @@
+variables:
+    IMAGE_NAME: brunito/java-back-from-pipeline
+    IMAGE_TAG: $CI_COMMIT_REF_NAME-$CI_COMMIT_SHA
+
+stages:
+  - test
+  - build
+  - deploy
+
+run_tests:
+    stage: test
+    only:
+        - backend-dev
+    image: brunito/infra-special-ubuntu:1.0.0
+    before_script:
+        - mvn -version
+        - mkdir -p /root/.aws
+        - echo "[default]" > /root/.aws/credentials
+        - echo aws_access_key_id=$AWS_ACCESS_KEY_ID >> /root/.aws/credentials
+        - echo aws_secret_access_key=$AWS_SECRET_ACCESS_KEY >> /root/.aws/credentials
+    script:
+        - mvn clean test
+        - mvn install
+    artifacts:
+        paths:
+            - target/  # Comparte la carpeta 'target' como un artefacto
+
+
+build_image:
+    dependencies:
+        - run_tests
+    stage: build
+    only:
+        - backend-dev
+    image: docker:20.10.16
+    services:
+        - docker:20.10.16-dind
+    variables:
+        DOCKER_TLS_CERTDIR: ""
+    before_script:
+        - echo doing the second job of the pipeline and files are
+        - ls
+        - ls target
+        - echo variable commit is, $CI_COMMIT_REF_NAME
+        - echo docker login variables are $REGISTRY_USER  $REGISTRY_PASSWORD
+        - docker login -u $REGISTRY_USER -p $REGISTRY_PASSWORD
+        - docker info  # Esto ayuda a verificar que el daemon de Docker esté disponible
+        - docker images
+    script:
+        - docker build -t $IMAGE_NAME:$IMAGE_TAG .
+        - docker push $IMAGE_NAME:$IMAGE_TAG
+        - echo Second pipeline done!
+
+deploy:
+    stage: deploy
+    only:
+        - backend-dev
+    image: ubuntu:22.04
+    before_script:
+        - chmod 400 $SSH_KEY
+        - apt-get update && apt-get install -y openssh-client
+        - ssh -V # Verificar versión después de la instalación
+    script:
+        - echo variable aws are, $AWS_ACCESS_KEY_ID and $AWS_SECRET_ACCESS_KEY
+        - ssh -T -o StrictHostKeyChecking=no -i $SSH_KEY ubuntu@ec2-18-118-140-140.us-east-2.compute.amazonaws.com '
+            echo AWS_ACCESS_KEY_ID is '$AWS_ACCESS_KEY_ID' &&
+            echo AWS_SECRET_ACCESS_KEY is '$AWS_SECRET_ACCESS_KEY' &&
+            docker login -u '$REGISTRY_USER' -p '$REGISTRY_PASSWORD' &&
+            docker ps -aq | xargs docker stop &&
+            docker ps -aq | xargs docker rm &&
+            docker images -q | xargs docker rmi  &&
+            docker run -d -p 8090:8090 '$IMAGE_NAME':'$IMAGE_TAG' &&
+            CONTAINER_ID=$(docker ps -qf ancestor='$IMAGE_NAME':'$IMAGE_TAG') &&
+            docker exec $CONTAINER_ID sh -c "mkdir -p /root/.aws &&
+            echo \"[default]\" > /root/.aws/credentials &&
+            echo \aws_access_key_id='"$AWS_ACCESS_KEY_ID"' >> /root/.aws/credentials &&
+            echo \aws_secret_access_key="'$AWS_SECRET_ACCESS_KEY'" >> /root/.aws/credentials"
+            '

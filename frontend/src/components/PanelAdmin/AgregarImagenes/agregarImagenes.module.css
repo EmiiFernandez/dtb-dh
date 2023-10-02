@@ -1,0 +1,73 @@
+.agregarImagenes {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #A9A794;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 50vw;
+}
+
+
+/* Estilos para el botón de selección de archivos */
+input[type="file"]::-webkit-file-upload-button {
+    background-color: #214f55; /* Cambia el color de fondo */
+    color: #fff; /* Cambia el color del texto */
+    padding: 10px 20px; /* Ajusta el relleno (padding) para cambiar el tamaño */
+    border: none; /* Elimina el borde predeterminado */
+    border-radius: 5px; /* Añade bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse */
+}
+
+.imagenes {
+    background-color: transparent; /* Elimina el color de fondo */
+    width: auto; /* Permite que el ancho se ajuste automáticamente al contenido */
+    height: auto; /* Permite que la altura se ajuste automáticamente al contenido */
+    border-radius: 0; /* Elimina el radio de borde */
+    display: block; /* Cambia el valor a 'block' si no quieres flexbox */
+    justify-content: initial; /* Elimina la alineación del contenido */
+}
+
+
+button[type="submit"] {
+    margin-top: 15px;
+    background-color: #214f55;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: center;
+    display:block
+}
+  
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.allProducts {
+    width: 50%;
+    margin-bottom: 0.5rem;
+}
+
+.errorForm {
+    background-color: brown;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.success {
+    background-color: #388940;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}

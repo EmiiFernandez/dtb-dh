@@ -1,0 +1,99 @@
+.agregarProducto {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #A9A794;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 40vw;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select{
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.caracteristicasContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Esto crea 4 columnas iguales */
+  gap: 10px;
+}
+
+.selectSeleccionado {
+  background-color: #214f55; /* Cambia el color de fondo */
+  color: #fff;
+  font-weight: bold;
+}
+
+
+button[type="submit"] {
+  margin-top: 15px;
+  background-color: #214f55;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: center;
+  display:block
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+
+.featuresFather {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.father {
+ display: flex;
+ justify-content: space-between;
+}
+
+.features {
+ display: flex;
+ justify-content: space-between;
+ gap: 10px;
+}
+
+.imagenes{
+  background-color: #ccc;
+  width: 80%;
+  height: 60%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.errorForm {
+  background-color: brown;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.success {
+  background-color: #388940;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}
