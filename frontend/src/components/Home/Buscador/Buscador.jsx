@@ -5,6 +5,7 @@ import "react-dates/lib/css/_datepicker.css";
 import styles from "../Buscador/buscador.module.css";
 import { BsBookmarkCheck } from "react-icons/bs";
 import moment from "moment";
+import SERVER_URL from "../../../configurations/server";
 
 function Buscador() {
   const [dateRange, setDateRange] = useState({
@@ -48,7 +49,7 @@ function Buscador() {
     const value = event.target.value;
     setSearchKeyword(value);
     // Realizar una solicitud para obtener la lista de productos actualizada
-    fetch(`http://18.118.140.140/product`)
+    fetch(`${SERVER_URL}/product`)
       .then((response) => response.json())
       .then((data) => {
         setProductos(data);
@@ -81,7 +82,7 @@ function Buscador() {
   //BOTON BUSCAR RESERVA POR PRODUCTO SELECCIONADO Y FECHAS
   const handleBuscar = () => {
     if (searchKeyword.length >= 3) {
-      fetch(`http://18.118.140.140/product/search?keyword=${searchKeyword}`)
+      fetch(`${SERVER_URL}/product/search?keyword=${searchKeyword}`)
         .then((response) => response.json())
         .then((data) => {
           setSearchResults(data);
@@ -118,7 +119,7 @@ function Buscador() {
           endBooking: endDateForBackend,
         };
 
-        const response = await fetch("http://18.118.140.140/shopping-cart", {
+        const response = await fetch(SERVER_URL + "/shopping-cart", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -157,7 +158,7 @@ function Buscador() {
       if (selectedProduct && selectedProduct.id) {
         try {
           const response = await fetch(
-            `http://18.118.140.140/detail-booking/occupied-dates?productId=${selectedProduct.id}`
+            `${SERVER_URL}/detail-booking/occupied-dates?productId=${selectedProduct.id}`
           );
           if (response.ok) {
             const data = await response.json();

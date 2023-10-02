@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import styles from "./reserva.module.css";
 import moment from "moment";
+import SERVER_URL from "../../configurations/server";
 
 function Reserva() {
   const [products, setProducts] = useState([]);
@@ -35,7 +36,7 @@ function Reserva() {
     /// GET A LA API DE SHOPPING-CART
     async function fetchShoppingCart() {
       try {
-        const response = await fetch("http://18.118.140.140/shopping-cart", {
+        const response = await fetch(SERVER_URL + "/shopping-cart", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -62,7 +63,7 @@ function Reserva() {
   useEffect(() => {
     async function bookingProduct() {
       try {
-        const response = await fetch("http://18.118.140.140/booking", {
+        const response = await fetch(SERVER_URL + "/booking", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -100,7 +101,7 @@ function Reserva() {
   /// GET A LA API DE DETAIL-BOOKING
   async function fetchDetailBooking() {
     try {
-      const response = await fetch("http://18.118.140.140/detail-booking", {
+      const response = await fetch(SERVER_URL + "/detail-booking", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

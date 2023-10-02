@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./listaProductos.module.css";
 import { FaTrash, FaSave, FaEdit } from "react-icons/fa";
+import SERVER_URL from "../../../configurations/server";
 
 let token = sessionStorage.getItem("jwtToken");
 
@@ -18,7 +19,7 @@ const ListaProductos = () => {
 
   useEffect(() => {
     // Obtener las opciones de marcas desde el servidor
-    fetch("http://18.118.140.140/brand")
+    fetch(SERVER_URL + "/brand")
       .then((response) => response.json())
       .then((data) => {
         setAvailableBrands(data);
@@ -26,7 +27,7 @@ const ListaProductos = () => {
       .catch((error) => console.log("Error fetching brands:", error));
 
     // Obtener las opciones de categorías desde el servidor
-    fetch("http://18.118.140.140/categories")
+    fetch(SERVER_URL + "/categories")
       .then((response) => response.json())
       .then((data) => {
         setAvailableCategories(data);
@@ -34,7 +35,7 @@ const ListaProductos = () => {
       .catch((error) => console.log("Error fetching categories:", error));
 
     // Obtener la lista de productos desde el servidor
-    fetch("http://18.118.140.140/product")
+    fetch(SERVER_URL + "/product")
       .then((response) => response.json())
       .then((data) => {
         setProductos(data);
@@ -47,7 +48,7 @@ const ListaProductos = () => {
       "¿Estás seguro de que deseas eliminar este producto?"
     );
     if (confirmDelete) {
-      fetch(`http://18.118.140.140/product/${id}`, {
+      fetch(`${SERVER_URL}/product/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -93,7 +94,7 @@ const ListaProductos = () => {
     };
     console.log("PRODUCTO UPDATE  ", updatedProductData);
 
-    fetch(`http://18.118.140.140/product/${id}`, {
+    fetch(`${SERVER_URL}/product/${id}`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -114,7 +115,7 @@ const ListaProductos = () => {
         console.log("Mensaje del servidor:", message);
 
         // Get para traer los datos actulizados
-        fetch(`http://18.118.140.140/product`)
+        fetch(`${SERVER_URL}/product`)
           .then((response) => response.json())
           .then((data) => {
             setProductos(data);

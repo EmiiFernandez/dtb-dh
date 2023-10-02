@@ -13,6 +13,7 @@ import {
   BsWhatsapp,
   BsShareFill,
 } from "react-icons/bs";
+import SERVER_URL from "../../configurations/server";
 
 const Productos = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,14 +45,14 @@ const Productos = () => {
   };
 
   async function fetchProductos() {
-    const response = await fetch("http://18.118.140.140/product");
+    const response = await fetch(SERVER_URL + "/product");
     const jsonData = await response.json();
     setProductos(jsonData);
     setIsLoading(false);
   }
 
   async function fetchCategorias() {
-    const response = await fetch("http://18.118.140.140/categories");
+    const response = await fetch(SERVER_URL + "/categories");
     const jsonData = await response.json();
     setCategorias(jsonData);
   }
@@ -232,7 +233,7 @@ const Productos = () => {
                     <div className={styles.socialLinks}>
                       <a
                         className={styles.socialLinksA}
-                        href={`https://www.facebook.com/share?url=http://g4-deploy-react-app.s3-website.us-east-2.amazonaws.com`}
+                        href={`https://www.facebook.com/share?url=http://localhost:3000/`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -248,7 +249,7 @@ const Productos = () => {
                       </a>
                       <a
                         className={styles.socialLinksA}
-                        href={`https://twitter.com/share?url=https://http://g4-deploy-react-app.s3-website.us-east-2.amazonaws.com&text=${producto.name}`}
+                        href={`https://twitter.com/share?url=https://http://localhost:3000/&text=${producto.name}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -257,7 +258,7 @@ const Productos = () => {
                       <a
                         className={styles.socialLinksA}
                         href={`whatsapp://send?text=${encodeURIComponent(
-                          `¡Mira este producto: ${producto.name}! http://g4-deploy-react-app.s3-website.us-east-2.amazonaws.com`
+                          `¡Mira este producto: ${producto.name}! http://localhost:3000/`
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
