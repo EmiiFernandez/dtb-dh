@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import styles from "./galeria.module.css";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
+import SERVER_URL from "../../configurations/server";
 
 const GaleriaImg = () => {
   const { id } = useParams();
@@ -14,7 +15,7 @@ const GaleriaImg = () => {
     const fetchData = async () => {
       try {
         // Obtener datos del producto
-        const responseProduct = await fetch(`http://18.118.140.140/product/${id}`);
+        const responseProduct = await fetch(`${SERVER_URL}/product/${id}`);
         const productJSON = await responseProduct.json();
         setProduct(productJSON);
 

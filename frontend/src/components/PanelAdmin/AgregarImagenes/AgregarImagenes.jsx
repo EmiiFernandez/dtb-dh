@@ -1,5 +1,6 @@
 import styles from "./agregarImagenes.module.css";
 import { useState, useEffect } from "react";
+import SERVER_URL from "../../../configurations/server";
 
 function AgregarImagenes() {
     const [errorForm, setErrorForm] = useState('');
@@ -12,7 +13,7 @@ function AgregarImagenes() {
     
     async function handleProductos() {
         const response = await(await
-            fetch('http://18.118.140.140/product')
+            fetch(SERVER_URL + '/product')
             ).json()
             .then((data) => {
                 data.sort((a,b) =>

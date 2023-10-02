@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./InicioSesion.module.css";
 import { DataContext } from "../Context/DataContext";
+import SERVER_URL from "../../configurations/server";
 
 function InicioSesion() {
   const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ function InicioSesion() {
       setError("La contraseña debe tener al menos 6 caracteres");
     } else {
       try {
-        const response = await fetch("http://18.118.140.140/auth/login", {
+        const response = await fetch(`${SERVER_URL}/auth/login`, {
           method: "POST",
           credentials: "include", // Incluir cookies en la solicitud
           body: JSON.stringify({

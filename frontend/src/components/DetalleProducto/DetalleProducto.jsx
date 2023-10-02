@@ -9,6 +9,8 @@ import { GiMusicalScore, GiMusicSpell } from "react-icons/gi";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { CgSearchLoading } from "react-icons/cg";
 import moment from "moment";
+import SERVER_URL from "../../configurations/server";
+
 
 const opcionesDePoliticas = [
   "Condiciones de entrega, horarios: Nuestra empresa ofrece entregas programadas de instrumentos musicales en horarios convenientes para nuestros clientes. Garantizamos la puntualidad y la integridad de los productos durante la entrega, asegurando que estén listos para su uso inmediato.",
@@ -61,7 +63,7 @@ const DetalleProducto = () => {
   useEffect(() => {
     const fetchData = async () => {
       const responseProduct = await fetch(
-        `http://18.118.140.140/product/${id}`
+        `${SERVER_URL}/product/${id}`
       );
       const productJSON = await responseProduct.json();
       const responseImages = await fetch(
@@ -90,7 +92,7 @@ const DetalleProducto = () => {
       if (product && product.id) {
         try {
           const response = await fetch(
-            `http://18.118.140.140/detail-booking/occupied-dates?productId=${product.id}`
+            `${SERVER_URL}/detail-booking/occupied-dates?productId=${product.id}`
           );
           if (response.ok) {
             const data = await response.json();
@@ -191,7 +193,7 @@ const DetalleProducto = () => {
     };
     try {
       if (startDateFormatted && endDateFormatted) {
-        const response = await fetch("http://18.118.140.140/shopping-cart", {
+        const response = await fetch(SERVER_URL + "/shopping-cart", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
