@@ -631,3 +631,11 @@
 [2023-10-03 17:57:24] [ ERROR] [GlobalExceptionHandler:19] Failed to convert value of type 'java.lang.String' to required type 'int'; For input string: "0.jpg"
 [2023-10-03 17:57:24] [ ERROR] [GlobalExceptionHandler:19] Failed to convert value of type 'java.lang.String' to required type 'int'; For input string: "0.jpg"
 [2023-10-03 17:58:57] [ ERROR] [GlobalExceptionHandler:19] java.io.IOException: Se ha anulado una conexión establecida por el software en su equipo host.
+[2023-10-03 18:18:51] [ ERROR] [GlobalExceptionHandler:19] java.io.IOException: Se ha anulado una conexión establecida por el software en su equipo host.
+[2023-10-03 18:22:35] [ ERROR] [GlobalExceptionHandler:19] java.io.IOException: Se ha anulado una conexión establecida por el software en su equipo host.
+[2023-10-03 18:26:37] [ ERROR] [GlobalExceptionHandler:19] java.io.IOException: Se ha anulado una conexión establecida por el software en su equipo host.
+[2023-10-03 18:26:58] [ ERROR] [GlobalExceptionHandler:19] java.io.IOException: Se ha anulado una conexión establecida por el software en su equipo host.
+[2023-10-03 18:30:39] [ ERROR] [GlobalExceptionHandler:19] java.io.IOException: Se ha anulado una conexión establecida por el software en su equipo host.
+[2023-10-03 18:57:38] [ ERROR] [GlobalExceptionHandler:19] java.io.IOException: Se ha anulado una conexión establecida por el software en su equipo host.
+[2023-10-03 19:01:56] [ ERROR] [GlobalExceptionHandler:19] java.io.IOException: Se ha anulado una conexión establecida por el software en su equipo host.
+[2023-10-03 19:13:22] [ ERROR] [GlobalExceptionHandler:19] java.io.IOException: Se ha anulado una conexión establecida por el software en su equipo host.
