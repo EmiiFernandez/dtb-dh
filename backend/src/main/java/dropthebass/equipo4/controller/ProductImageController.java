@@ -1,53 +1,128 @@
 package dropthebass.equipo4.controller;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+
+import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/images/product")
 public class ProductImageController {
 
-    @GetMapping("/{id}/{file}")
-    public ResponseEntity<Resource> getGitHubProductImage(
-            @PathVariable Long id,
-            @PathVariable String nombre
-    ) {
-        try {
-            // Construye la URL directa a la imagen en GitHub
-            String githubImageUrl = "https://raw.githubusercontent.com/EmiiFernandez/dtb-dh-img/main/img/product/"
-                    + id + "/" + nombre + ".jpg";
+    @Value("${product.images.directory}")
+    private String imagesDirectory;
 
-            // Crea un recurso a partir de la URL
-            UrlResource imageResource = new UrlResource(new URI(githubImageUrl));
+ /*   @GetMapping("/{productId}/{imageName:.+}")
+    public ResponseEntity<Resource> getImageByName(@PathVariable Long productId, @PathVariable String imageName) {
+        try {
+            String productDirectory = imagesDirectory + productId + "/";
+            Path imagePath = Paths.get(productDirectory, imageName);
+            Resource imageResource = new FileSystemResource(imagePath.toFile());
 
             if (imageResource.exists()) {
-                // Devuelve la imagen con el tipo de contenido adecuado
                 return ResponseEntity.ok()
-                        .contentType(MediaType.IMAGE_JPEG) // Cambia el tipo de contenido según el formato de tus imágenes
+                        .contentType(MediaType.IMAGE_JPEG) // Cambiar según el tipo de imagen
                         .body(imageResource);
             } else {
-                // Manejo de error si la imagen no existe
                 return ResponseEntity.notFound().build();
             }
-        } catch (MalformedURLException | URISyntaxException e) {
-            // Manejo de errores de URL
+        } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(500).build();
+        }
+    }*/
+
+    @PostMapping("/{productId}")
+    public ResponseEntity<String> uploadImage(@PathVariable Long productId, @RequestParam("file") MultipartFile file) {
+        try {
+            String productDirectory = imagesDirectory + productId + "/";
+            String randomFileName = UUID.randomUUID().toString() + "-" + file.getOriginalFilename();
+            Path filePath = Paths.get(productDirectory, randomFileName);
+
+            // Verifica si la carpeta del producto existe, y si no, créala
+            if (!Files.exists(filePath.getParent())) {
+                Files.createDirectories(filePath.getParent());
+            }
+
+            // Guarda la imagen en el sistema de archivos
+            Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+
+            return ResponseEntity.ok("Imagen cargada con éxito. Nombre del archivo: " + randomFileName);
         } catch (IOException e) {
-            // Manejo de errores de lectura de archivo
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(500).body("Error al cargar la imagen.");
+        }
+    }
+
+    @GetMapping("/{productId}")
+    public ResponseEntity<List<String>> getAllImagesForProduct(@PathVariable Long productId) {
+        try {
+            String productDirectory = imagesDirectory + productId + "/";
+            File productFolder = new File(productDirectory);
+
+            if (!productFolder.exists()) {
+                return ResponseEntity.notFound().build();
+            }
+
+            // Obtén la lista de nombres de archivo en la carpeta del producto
+            String[] fileNames = productFolder.list();
+
+            if (fileNames != null && fileNames.length > 0) {
+                List<String> imageNames = Arrays.asList(fileNames);
+                return ResponseEntity.ok(imageNames);
+            } else {
+                return ResponseEntity.noContent().build();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).build();
+        }
+    }
+
+    @GetMapping("/{productId}/{imageLocation}")
+    public ResponseEntity<Resource> getImageByLocation(@PathVariable Long productId, @PathVariable int imageLocation) {
+        try {
+            String productDirectory = imagesDirectory + productId + "/";
+            File productFolder = new File(productDirectory);
+
+            if (!productFolder.exists()) {
+                return ResponseEntity.notFound().build();
+            }
+
+            // Obtén la lista de nombres de archivo en la carpeta del producto
+            String[] fileNames = productFolder.list();
+
+            if (fileNames != null && fileNames.length > imageLocation) {
+                String imageName = fileNames[imageLocation];
+                Path imagePath = Paths.get(productDirectory, imageName);
+                Resource imageResource = new FileSystemResource(imagePath.toFile());
+
+                if (imageResource.exists()) {
+                    return ResponseEntity.ok()
+                            .contentType(MediaType.IMAGE_JPEG) // Cambiar según el tipo de imagen
+                            .body(imageResource);
+                } else {
+                    return ResponseEntity.notFound().build();
+                }
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).build();
         }
     }
 }
