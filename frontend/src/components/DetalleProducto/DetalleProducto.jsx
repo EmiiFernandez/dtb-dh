@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import moment from "moment";
+import 'moment/locale/es';
 import { DateRangePicker } from "react-dates";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
@@ -8,7 +10,6 @@ import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { GiMusicalScore, GiMusicSpell } from "react-icons/gi";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { CgSearchLoading } from "react-icons/cg";
-import moment from "moment";
 import SERVER_URL from "../../utils/configurations/server";
 import { fetchProductAndImages } from '../../utils/api/api';
 
@@ -60,11 +61,10 @@ const DetalleProducto = () => {
   let amount = 1;
 
   const [blockedDates, setBlockedDates] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
       const { product, images } = await fetchProductAndImages(id);
-
+      
       if (product && images.length > 0) {
         setProduct(product);
         setImages(images);
@@ -72,10 +72,23 @@ const DetalleProducto = () => {
         console.log("IMAGES DE LA APIIIIIIII", images);
       }
     };
-
+    
     fetchData();
   }, [id]);
+  
+  //FUNCION PARA CAMBIAR EL PLACEHOLDER DEL CALENDAR
+  useEffect(() => {
+    // Obtén los elementos de los inputs por su ID
+    const startDateInput = document.getElementById('start_date_id');
+    const endDateInput = document.getElementById('end_date_id');
 
+    // Verifica si los elementos existen (para evitar errores si no se encuentran)
+    if (startDateInput && endDateInput) {
+      // Cambia el valor del atributo placeholder
+      startDateInput.placeholder = 'Desde';
+      endDateInput.placeholder = 'Hasta';
+    }
+  }, []);
 
   /*useEffect(() => {
     const fetchData = async () => {
@@ -101,6 +114,7 @@ const DetalleProducto = () => {
 
     fetchData();
   }, [id]);*/
+
 
   //CALENDARIO FECHAS OCUPADAS (BLOQUEA LAS FECHAS)
   useEffect(() => {
@@ -181,6 +195,8 @@ const DetalleProducto = () => {
     setImagenActual(nuevaImagen);
   };
 
+  
+
   /// LO UTILIZA EL CALENDARIO PARA RESTRINGIR FECHAS PASADAS
   const isOutsideRange = (day) => {
     const today = moment();
@@ -198,19 +214,47 @@ const DetalleProducto = () => {
     ? endDateAsMoment.format("DD-MM-YYYY")
     : null;
 
+    const startDateForBackend = startDateAsMoment
+    ? startDateAsMoment.format("YYYY-MM-DD")
+    : null;
+
+  const endDateForBackend = endDateAsMoment
+    ? endDateAsMoment.format("YYYY-MM-DD")
+    : null;
+
+      //CHEQUEA QUE TENGA TOKEN
+  const isUserLoggedIn = () => {
+    if (token) {
+      return true; // El usuario está logueado y el token es válido
+    }
+    return false; // El usuario no está logueado o el token es inválido
+  };
+
   /// FUNCION PARA HACER LA RESERVA HACIENDO POST AL SHOPPING-CART
   const addProducto = async () => {
+
+    if (!isUserLoggedIn()) {
+      // Si el usuario no está logueado, mostrar un alert y detener la ejecución.
+      alert("Debes iniciar sesión para hacer una reserva.");
+      return;
+    }
+  
+    if (!startDateFormatted || !endDateFormatted) {
+      // Si no se han seleccionado fechas, mostrar un alert y detener la ejecución.
+      alert("Selecciona las fechas de inicio y final antes de reservar.");
+      return;
+    }
     const bookProduct = {
       product: {
         id: product.id,
       },
       amount: amount,
-      startBooking: startDateFormatted,
-      endBooking: endDateFormatted,
+      startBooking: startDateForBackend,
+      endBooking: endDateForBackend,
     };
     try {
       if (startDateFormatted && endDateFormatted) {
-        const response = await fetch(SERVER_URL + "/shopping-cart", {
+        const response = await fetch(SERVER_URL+"/shopping-cart", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -224,7 +268,7 @@ const DetalleProducto = () => {
           setAgregarProducto(false);
         }
       } else {
-        alert("Selecciona las fechas de incio y final antes de reservar.");
+        alert("Selecciona las fechas en las que quisiera reservar");
       }
     } catch (error) {
       console.error("Error al enviar la solicitud:", error);
@@ -239,6 +283,7 @@ const DetalleProducto = () => {
     );
   };
 
+  
   return (
     <div className={styles.detalleProducto}>
       <div key={product.id}>

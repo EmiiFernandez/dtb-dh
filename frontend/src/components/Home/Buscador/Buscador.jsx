@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { DateRangePicker, isSameDay } from "react-dates";
+import moment from "moment";
+import 'moment/locale/es';
+import { DateRangePicker } from "react-dates";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 import styles from "../Buscador/buscador.module.css";
 import { BsBookmarkCheck } from "react-icons/bs";
-import moment from "moment";
 import SERVER_URL from "../../../utils/configurations/server";
 
 function Buscador() {
@@ -145,6 +146,20 @@ function Buscador() {
   };
   //TERMINA EL BOTON DE RESERVAR
 
+  //FUNCION PARA CAMBIAR EL PLACEHOLDER DEL CALENDAR
+  useEffect(() => {
+    // Obtén los elementos de los inputs por su ID
+    const startDateInput = document.getElementById('start_date_id');
+    const endDateInput = document.getElementById('end_date_id');
+
+    // Verifica si los elementos existen (para evitar errores si no se encuentran)
+    if (startDateInput && endDateInput) {
+      // Cambia el valor del atributo placeholder
+      startDateInput.placeholder = 'Desde';
+      endDateInput.placeholder = 'Hasta';
+    }
+  }, []);
+  
   /// FUNCION PARA RESTRINGIR FECHAS PASADAS
   const isOutsideRange = (day) => {
     const today = moment();
