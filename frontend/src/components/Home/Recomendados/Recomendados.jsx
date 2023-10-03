@@ -9,6 +9,7 @@ import {
   BsShareFill,
 } from "react-icons/bs";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
+import SERVER_URL from "../../../utils/configurations/server";
 
 const Recomendados = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,7 +24,7 @@ const Recomendados = () => {
   const [mostrarPopup, setMostrarPopup] = useState(false);
 
   async function fetchProductos() {
-    const response = await fetch("http://18.118.140.140/product");
+    const response = await fetch(SERVER_URL + "/product");
     const jsonData = await response.json();
     setProductos(jsonData);
     setIsLoading(false);
@@ -157,8 +158,8 @@ const Recomendados = () => {
                     to={"/detalle/" + producto.id}
                   >
                     <img
-                      src={`http://18.118.140.140/s3/product-images/${producto.id}/0`}
-                      alt="img-product-card"
+src={`https://raw.githubusercontent.com/EmiiFernandez/dtb-dh-img/main/img/product/${producto.id}/0.jpg`}
+alt="img-product-card"
                       className={styles.img}
                     />
                   </Link>
@@ -170,7 +171,7 @@ const Recomendados = () => {
                     <div className={styles.sharePopup} id={`popup${producto.id}`}>
                       <img
                         className={styles.sharePopupImg}
-                        src={`http://18.118.140.140/s3/product-images/${producto.id}/0`}
+                        src={`https://raw.githubusercontent.com/EmiiFernandez/dtb-dh-img/main/img/product/${producto.id}/0.jpg`}
                         alt="img-product-popup"
                       />
                       <p>{producto.name}</p>

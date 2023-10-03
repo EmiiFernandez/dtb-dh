@@ -5,7 +5,7 @@ import "react-dates/lib/css/_datepicker.css";
 import styles from "../Buscador/buscador.module.css";
 import { BsBookmarkCheck } from "react-icons/bs";
 import moment from "moment";
-import SERVER_URL from "../../../configurations/server";
+import SERVER_URL from "../../../utils/configurations/server";
 
 function Buscador() {
   const [dateRange, setDateRange] = useState({

@@ -13,7 +13,7 @@ import {
   BsWhatsapp,
   BsShareFill,
 } from "react-icons/bs";
-import SERVER_URL from "../../configurations/server";
+import SERVER_URL from "../../utils/configurations/server";
 
 const Productos = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -201,7 +201,7 @@ const Productos = () => {
                 >
                   <img
                     className={styles.imgLista}
-                    src={`http://18.118.140.140/s3/product-images/${producto.id}/0`}
+                    src={`https://raw.githubusercontent.com/EmiiFernandez/dtb-dh-img/main/img/product/${producto.id}/0.jpg`}
                     alt="imagenProducto"
                   />
                 </Link>
@@ -213,7 +213,7 @@ const Productos = () => {
                   <div className={styles.cardflex}>
                     <img
                       className={styles.sharePopupImg}
-                      src={`http://18.118.140.140/s3/product-images/${producto.id}/0`}
+                      src={`https://raw.githubusercontent.com/EmiiFernandez/dtb-dh-img/main/img/product/${producto.id}/0.jpg`}
                       alt="img-product-popup"
                     />
                     <p>{producto.name}</p>

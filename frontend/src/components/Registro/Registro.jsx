@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./registro.module.css";
+import SERVER_URL from "../../utils/configurations/server";
 
 const Registro = () => {
   const [name, setName] = useState("");
@@ -24,7 +25,7 @@ const Registro = () => {
       setError("La contraseña debe tener al menos 6 caracteres");
     } else {
       try {
-        const response = await fetch("http://18.118.140.140/signup", {
+        const response = await fetch(SERVER_URL + "/signup", {
           method: "POST",
           body: JSON.stringify({
             name,

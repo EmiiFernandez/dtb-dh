@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import styles from './administrarCategorias.module.css';
+import SERVER_URL from '../../../utils/configurations/server';
 
 const AdministrarCategorias = () => {
   const [categorias, setCategorias] = useState([]);
@@ -11,7 +12,7 @@ const AdministrarCategorias = () => {
 
   const fetchCategorias = async () => {
     try {
-      const response = await fetch(`http://18.118.140.140/categories`);
+      const response = await fetch(`${SERVER_URL}/categories`);
       if (response.ok) {
         const categoriasData = await response.json();
         setCategorias(categoriasData);
@@ -39,7 +40,7 @@ const AdministrarCategorias = () => {
     };
 
     try {
-      const response = await fetch(`http://18.118.140.140/categories`, {
+      const response = await fetch(`${SERVER_URL}/categories`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -70,7 +71,7 @@ const AdministrarCategorias = () => {
   
   if (confirmDelete) {
     try {
-      const response = await fetch(`http://18.118.140.140/categories/${categoriaId}`, {
+      const response = await fetch(`${SERVER_URL}/categories/${categoriaId}`, {
         method: 'DELETE',
         headers: {Authorization: `Bearer ${token}`}
       });
@@ -93,7 +94,7 @@ const AdministrarCategorias = () => {
     };
 
     try {
-      const response = await fetch(`http://18.118.140.140/categories/${categoriaSeleccionada.id}`, {
+      const response = await fetch(`${SERVER_URL}/categories/${categoriaSeleccionada.id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,

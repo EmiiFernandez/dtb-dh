@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import styles from "./reserva.module.css";
 import moment from "moment";
-import SERVER_URL from "../../configurations/server";
+import SERVER_URL from "../../utils/configurations/server";
 
 function Reserva() {
   const [products, setProducts] = useState([]);

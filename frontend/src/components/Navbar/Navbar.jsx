@@ -6,6 +6,7 @@ import { DataContext } from "../Context/DataContext";
 import { AiFillSetting } from "react-icons/ai";
 import { BsBookmarkCheck } from "react-icons/bs";
 import { FiMenu } from "react-icons/fi";
+import SERVER_URL from "../../utils/configurations/server";
 
 
 const Navbar = () => {
@@ -18,7 +19,7 @@ const Navbar = () => {
   const handleLogout = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://18.118.140.140/auth/logout", {
+      const response = await fetch(SERVER_URL + "/auth/logout", {
         method: "GET",
         headers: {
           "authorization": `Bearer ${token}`,
