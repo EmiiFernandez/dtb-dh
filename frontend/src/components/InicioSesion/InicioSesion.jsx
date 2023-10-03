@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./InicioSesion.module.css";
 import { DataContext } from "../Context/DataContext";
-import SERVER_URL from "../../configurations/server";
+import SERVER_URL from "../../utils/configurations/server";
 
 function InicioSesion() {
   const [email, setEmail] = useState("");

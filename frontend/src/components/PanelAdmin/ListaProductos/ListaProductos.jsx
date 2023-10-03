@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./listaProductos.module.css";
 import { FaTrash, FaSave, FaEdit } from "react-icons/fa";
-import SERVER_URL from "../../../configurations/server";
+import SERVER_URL from "../../../utils/configurations/server";
 
 let token = sessionStorage.getItem("jwtToken");
 

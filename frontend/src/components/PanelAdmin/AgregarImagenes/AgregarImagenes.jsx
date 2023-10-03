@@ -1,6 +1,6 @@
 import styles from "./agregarImagenes.module.css";
 import { useState, useEffect } from "react";
-import SERVER_URL from "../../../configurations/server";
+import SERVER_URL from "../../../utils/configurations/server";
 
 function AgregarImagenes() {
     const [errorForm, setErrorForm] = useState('');

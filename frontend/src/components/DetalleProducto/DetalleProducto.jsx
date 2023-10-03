@@ -9,7 +9,8 @@ import { GiMusicalScore, GiMusicSpell } from "react-icons/gi";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { CgSearchLoading } from "react-icons/cg";
 import moment from "moment";
-import SERVER_URL from "../../configurations/server";
+import SERVER_URL from "../../utils/configurations/server";
+import { fetchProductAndImages } from '../../utils/api/api';
 
 
 const opcionesDePoliticas = [
@@ -62,18 +63,34 @@ const DetalleProducto = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      const { product, images } = await fetchProductAndImages(id);
+
+      if (product && images.length > 0) {
+        setProduct(product);
+        setImages(images);
+        console.log("PRODUCTOS DE LA APIIIIIIII", product);
+        console.log("IMAGES DE LA APIIIIIIII", images);
+      }
+    };
+
+    fetchData();
+  }, [id]);
+
+
+  /*useEffect(() => {
+    const fetchData = async () => {
       const responseProduct = await fetch(
         `${SERVER_URL}/product/${id}`
       );
       const productJSON = await responseProduct.json();
       const responseImages = await fetch(
-        `http://18.118.140.140/s3/product-images/${id}`
+        `${SERVER_URL}/images/product/${id}`
       );
       const imagesJSON = await responseImages.json();
       const imagesArray = [];
       imagesJSON.forEach((_, index) => {
         imagesArray.push(
-          `http://18.118.140.140/s3/product-images/${id}/${index}`
+          `${SERVER_URL}/images/product/${id}/${index}`
         );
       });
       setProduct(productJSON);
@@ -83,7 +100,7 @@ const DetalleProducto = () => {
     };
 
     fetchData();
-  }, [id]);
+  }, [id]);*/
 
   //CALENDARIO FECHAS OCUPADAS (BLOQUEA LAS FECHAS)
   useEffect(() => {

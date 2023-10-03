@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import styles from "./galeria.module.css";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
-import SERVER_URL from "../../configurations/server";
+import { fetchProductAndImages } from "../../utils/api/api";
 
 const GaleriaImg = () => {
   const { id } = useParams();
@@ -13,27 +13,13 @@ const GaleriaImg = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        // Obtener datos del producto
-        const responseProduct = await fetch(`${SERVER_URL}/product/${id}`);
-        const productJSON = await responseProduct.json();
-        setProduct(productJSON);
+      const { product, images } = await fetchProductAndImages(id);
 
-        // Obtener datos de las imágenes
-        const responseImages = await fetch(`http://18.118.140.140/s3/product-images/${id}`);
-        const imagesJSON = await responseImages.json();
-        
-        // Construir las rutas de las imágenes
-        const imagesArray = imagesJSON.map((_, index) => (
-          `http://18.118.140.140/s3/product-images/${id}/${index}`
-        ));
-        
-        setImages(imagesArray);
-        
-        console.log('PRODUCTOS DE LA API', productJSON);
-        console.log('IMAGES DE LA API', imagesArray);
-      } catch (error) {
-        console.error('Error al obtener datos:', error);
+      if (product && images.length > 0) {
+        setProduct(product);
+        setImages(images);
+        console.log("PRODUCTOS DE LA APIIIIIIII", product);
+        console.log("IMAGES DE LA APIIIIIIII", images);
       }
     };
 

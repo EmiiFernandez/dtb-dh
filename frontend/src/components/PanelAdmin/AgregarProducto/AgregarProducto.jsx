@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './agregarProducto.module.css';
+import SERVER_URL from '../../../utils/configurations/server';
 
 function AgregarProductos() {
   const [name, setName] = useState('');
@@ -27,7 +28,7 @@ function AgregarProductos() {
 
   useEffect(() => {
     // Obtener categorías usando fetch
-    fetch("http://18.118.140.140/categories")
+    fetch(SERVER_URL + "/categories")
       .then(response => response.json())
       .then((data) => {
         data.sort((a,b) =>
@@ -37,7 +38,7 @@ function AgregarProductos() {
       .catch(error => console.error('Error al obtener categorías:', error));
 
     // Obtener caracteristicas usando fetch
-    fetch("http://18.118.140.140/brand")
+    fetch(SERVER_URL + "/brand")
       .then(response => response.json())
       .then((data) => {
         data.sort((a,b) =>
@@ -48,7 +49,7 @@ function AgregarProductos() {
   }, []);
 
   useEffect(() => {
-    fetch("http://18.118.140.140/features")
+    fetch(SERVER_URL + "/features")
       .then(response => response.json())
       .then((data) => {
         data.sort((a,b) =>
@@ -74,7 +75,7 @@ function AgregarProductos() {
       features: featuresArray
     }
     try {
-      const response = await fetch("http://18.118.140.140/product", {
+      const response = await fetch(SERVER_URL + "/product", {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

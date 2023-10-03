@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './panelUsuarios.module.css';
+import SERVER_URL from '../../utils/configurations/server';
 
 const PanelUsuarios = () => {
   const [usuarios, setUsuarios] = useState([]);
@@ -9,7 +10,7 @@ const PanelUsuarios = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://18.118.140.140/users');
+        const response = await fetch(SERVER_URL + '/users');
         if (response.ok) {
           const data = await response.json();
           setUsuarios(data);
@@ -33,7 +34,7 @@ const PanelUsuarios = () => {
 
     try {
       const response = await fetch(
-        `http://18.118.140.140/administracion/promote?emailUser=${email}`,
+        `${SERVER_URL}/administracion/promote?emailUser=${email}`,
         {
           method: 'POST',
           headers: {
@@ -66,7 +67,7 @@ const PanelUsuarios = () => {
 
     try {
       const response = await fetch(
-        `http://18.118.140.140/administracion/change-user?emailUser=${email}`,
+        `${SERVER_URL}/administracion/change-user?emailUser=${email}`,
         {
           method: 'POST',
           headers: {
