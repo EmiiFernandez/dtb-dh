@@ -40,7 +40,7 @@ public class WebSecurityConfig {
                     cors.configurationSource(corsConfigurationSource());
                 })
                 .authorizeHttpRequests(auth -> auth
-                                .requestMatchers("/auth/**", "/signup/**", "/shopping-cart/**", "/detail-booking/check-availability").permitAll()
+                                .requestMatchers("/auth/**", "/signup/**", "/shopping-cart/**", "/detail-booking/check-availability", "/images/product/**").permitAll()
                                 .requestMatchers(HttpMethod.DELETE, "/users/**").hasRole("DEV")
                                 .requestMatchers(HttpMethod.GET, "/categories/**", "/product/**", "/brand/**", "/reviews/**", "/features/**", "/users/**", "/s3/**", "/detail-booking/occupied-dates").permitAll()
                                 .requestMatchers("/booking/**","/favs/**", "/detail-booking/**", "/reviews/**").hasAnyRole("USER", "ADMIN", "DEV")
@@ -76,7 +76,6 @@ public class WebSecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.addAllowedOrigin("http://g4-deploy-react-app.s3-website.us-east-2.amazonaws.com");
         configuration.addAllowedOrigin("http://localhost:3000");
-        configuration.addAllowedOrigin("https://frontend-grupo4-integradora.vercel.app/");
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");
         configuration.setAllowCredentials(true);
