@@ -6,7 +6,7 @@ export async function fetchProductAndImages(id) {
       // Hacer una solicitud para obtener tanto los detalles del producto como la lista de imágenes
       const [responseProduct, responseImages] = await Promise.all([
         fetch(`${SERVER_URL}/product/${id}`),
-        fetch(`https://api.github.com/repos/EmiiFernandez/dtb-dh-img/contents/img/product/${id}`)
+        fetch(`${SERVER_URL}/images/product/${id}`)
       ]);
   
       if (!responseProduct.ok) {
@@ -19,13 +19,17 @@ export async function fetchProductAndImages(id) {
   
       const productJSON = await responseProduct.json();
       const imagesJSON = await responseImages.json();
+
+      console.log("IMAGENES JSON: " + imagesJSON);
   
       // Construir las URL de las imágenes basadas en los nombres de los archivos
       const imagesArray = imagesJSON.map((imageInfo, index) => {
-        return `https://raw.githubusercontent.com/EmiiFernandez/dtb-dh-img/main/img/product/${id}/${imageInfo.name}`;
+        return `${SERVER_URL}/images/product/${id}/${index}`;
       });
-  
+      console.log("IMAGENES ARRAY." + imagesArray)
+
       return { product: productJSON, images: imagesArray };
+
     } catch (error) {
       console.error('Error en la solicitud:', error);
       return { product: null, images: [] };

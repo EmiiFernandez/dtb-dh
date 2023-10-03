@@ -158,8 +158,8 @@ const Recomendados = () => {
                     to={"/detalle/" + producto.id}
                   >
                     <img
-src={`https://raw.githubusercontent.com/EmiiFernandez/dtb-dh-img/main/img/product/${producto.id}/0.jpg`}
-alt="img-product-card"
+                    src={`${SERVER_URL}/images/product/${producto.id}/0`}
+                    alt="img-product-card"
                       className={styles.img}
                     />
                   </Link>
@@ -171,7 +171,7 @@ alt="img-product-card"
                     <div className={styles.sharePopup} id={`popup${producto.id}`}>
                       <img
                         className={styles.sharePopupImg}
-                        src={`https://raw.githubusercontent.com/EmiiFernandez/dtb-dh-img/main/img/product/${producto.id}/0.jpg`}
+                        src={`${SERVER_URL}/images/product/${producto.id}/0`}
                         alt="img-product-popup"
                       />
                       <p>{producto.name}</p>

@@ -201,7 +201,7 @@ const Productos = () => {
                 >
                   <img
                     className={styles.imgLista}
-                    src={`https://raw.githubusercontent.com/EmiiFernandez/dtb-dh-img/main/img/product/${producto.id}/0.jpg`}
+                    src={`${SERVER_URL}/images/product/${producto.id}/0`}
                     alt="imagenProducto"
                   />
                 </Link>
@@ -213,7 +213,7 @@ const Productos = () => {
                   <div className={styles.cardflex}>
                     <img
                       className={styles.sharePopupImg}
-                      src={`https://raw.githubusercontent.com/EmiiFernandez/dtb-dh-img/main/img/product/${producto.id}/0.jpg`}
+                      src={`${SERVER_URL}/images/product/${producto.id}/0`}
                       alt="img-product-popup"
                     />
                     <p>{producto.name}</p>

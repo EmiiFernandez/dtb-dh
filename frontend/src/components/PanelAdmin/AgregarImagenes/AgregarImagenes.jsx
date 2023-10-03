@@ -24,7 +24,7 @@ function AgregarImagenes() {
 
     async function postImagenes(id, formData) {
         try {
-            const response = await fetch(`http://18.118.140.140/s3/product-images/${id}`, {
+            const response = await fetch(`${SERVER_URL}/images/product/${id}`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${token}`
